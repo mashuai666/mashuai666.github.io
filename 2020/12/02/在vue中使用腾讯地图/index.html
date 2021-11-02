@@ -10,7 +10,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Fechin,"> 
-    <meta name="description" content="heello"> 
+    <meta name="description" content="第一步：申请密钥登录腾讯位置服务官网：https://lbs.qq.com点击右上角 控制台 =&amp;gt;  key管理  =&amp;gt; 创建新密钥  (不需要再进入key设置，只要生成了密钥就可以了),"> 
     <meta name="author" content="John Doe"> 
     <link rel="alternative" href="atom.xml" title="马帅" type="application/atom+xml"> 
     <link rel="icon" href="/project/img/favicon.png"> 
@@ -28,7 +28,7 @@
     <div class="bar" style="width: 0;"></div>
     <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://mashuai666.github.io/project"></a>
     <div title="播放/暂停" class="iconfont icon-play"></div>
-    <h3 class="subtitle">我的第二个hexo blog</h3>
+    <h3 class="subtitle">在vue中使用腾讯地图</h3>
     <div class="social">
         <div>
             <div class="share">
@@ -43,16 +43,22 @@
     <div class="section">
         <div class="article">
     <div class='main'>
-        <h1 class="title">我的第二个hexo blog</h1>
+        <h1 class="title">在vue中使用腾讯地图</h1>
         <div class="stuff">
-            <span>十一月 30, 2016</span>
+            <span>十二月 02, 2020</span>
             
-  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/project/tags/vue/" rel="tag">vue</a></li></ul>
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/project/tags/vue/" rel="tag">vue</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/project/tags/%E8%85%BE%E8%AE%AF%E5%9C%B0%E5%9B%BE/" rel="tag">腾讯地图</a></li></ul>
 
 
         </div>
         <div class="content markdown">
-            <h3 id="heello"><a href="#heello" class="headerlink" title="heello"></a>heello</h3>
+            <h3 id="第一步：申请密钥"><a href="#第一步：申请密钥" class="headerlink" title="第一步：申请密钥"></a>第一步：申请密钥</h3><p>登录腾讯位置服务官网：<a target="_blank" rel="noopener" href="https://lbs.qq.com/">https://lbs.qq.com</a><br>点击右上角 控制台 =&gt;  key管理  =&gt; 创建新密钥  (不需要再进入key设置，只要生成了密钥就可以了)</p>
+<h3 id="第二步：引入文件"><a href="#第二步：引入文件" class="headerlink" title="第二步：引入文件"></a>第二步：引入文件</h3><p>找到public目录，在index.html中引入下面这句话，这里要填写自己刚才申请的key</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;https://map.qq.com/api/gljs?v=1.exp&amp;key=NAOBZ-*********-KJRLY-UJX5T-5OBPJ&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="第三步：使用地图"><a href="#第三步：使用地图" class="headerlink" title="第三步：使用地图"></a>第三步：使用地图</h3><p>在要使用的vue组件中设置一个容器，一定要有宽高</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">  data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    // 地图初始化函数，本例取名为init，开发者可根据实际情况定义</span><br><span class="line">    initMap () &#123;</span><br><span class="line">    // 定义地图中心点坐标</span><br><span class="line">      var center = new window.TMap.LatLng(39.984120, 116.307484)</span><br><span class="line">      // 定义map变量，调用 TMap.Map() 构造函数创建地图</span><br><span class="line">      var map = new window.TMap.Map(document.getElementById(&#x27;app&#x27;), &#123;</span><br><span class="line">        center: center, // 设置地图中心点坐标</span><br><span class="line">        zoom: 17.2, // 设置地图缩放级别</span><br><span class="line">        pitch: 43.5, // 设置俯仰角</span><br><span class="line">        rotation: 45 // 设置地图旋转角度</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  mounted () &#123;</span><br><span class="line">    this.initMap()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line"></span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
                 <source type="audio/mpeg" src="">
@@ -87,7 +93,7 @@
     </div>
     
         <div class='side'>
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#heello"><span class="toc-number">1.</span> <span class="toc-text">heello</span></a></li></ol>	
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%9A%E7%94%B3%E8%AF%B7%E5%AF%86%E9%92%A5"><span class="toc-number">1.</span> <span class="toc-text">第一步：申请密钥</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5%EF%BC%9A%E5%BC%95%E5%85%A5%E6%96%87%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">第二步：引入文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5%EF%BC%9A%E4%BD%BF%E7%94%A8%E5%9C%B0%E5%9B%BE"><span class="toc-number">3.</span> <span class="toc-text">第三步：使用地图</span></a></li></ol>	
         </div>
     
 </div>
